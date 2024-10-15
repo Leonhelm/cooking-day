@@ -1,8 +1,26 @@
-import { useCallback } from "react"
-
+"use client";
+import { useCallback, useState } from "react"
+import { getAuth, signOut } from "firebase/auth";
+import {useUser} from './UserContext'
 
 export const Logout = () => {
-  const onClick = useCallback(() => {}, [])
+  const {setUser} = useUser() ?? {};
+  const [isLoading, setLoading] = useState(false);
 
-  return <button type="button" onClick={onClick}>Get out</button>
+  const onClick = useCallback(() => {
+    const auth = getAuth();
+
+    setLoading(true);
+
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      setUser?.(null);
+    }).catch((error) => {
+      alert(error.message)
+    }).finally(() => {
+      setLoading(false);
+    });
+  }, [setUser])
+
+  return <button type="button" onClick={onClick} disabled={isLoading}>Get out</button>
 }
