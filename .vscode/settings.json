@@ -1,0 +1,31 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.startupEditor": "none",
+  "editor.fontSize": 15,
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "git.confirmSync": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "files.autoSave": "afterDelay",
+
+  // Настройки форматирования для Prettier
+  "editor.formatOnSave": true, // Форматировать при сохранении
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Использовать Prettier для форматирования
+
+  // Настройки ESLint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.format.enable": true, // Включить форматирование ESLint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true // Автоматически исправлять ошибки ESLint при сохранении
+  }
+}

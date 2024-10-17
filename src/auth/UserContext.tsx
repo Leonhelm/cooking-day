@@ -1,12 +1,20 @@
 "use client";
-import { useState, useEffect, createContext, useContext, PropsWithChildren, Dispatch, SetStateAction } from "react";
-import { createFirebaseApp } from "@/firebase/clientApp";
+import {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  PropsWithChildren,
+  Dispatch,
+  SetStateAction,
+} from "react";
+import { createFirebaseApp } from "@/shared/firebase/clientApp";
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 
 export const UserReactContext = createContext<{
   isLoadingUser: boolean;
   user: User | null;
-  setUser: Dispatch<SetStateAction<User | null>>
+  setUser: Dispatch<SetStateAction<User | null>>;
 } | null>(null);
 
 export const UserContext = (props: PropsWithChildren) => {
@@ -33,6 +41,6 @@ export const UserContext = (props: PropsWithChildren) => {
       {props.children}
     </UserReactContext.Provider>
   );
-}
+};
 
 export const useUser = () => useContext(UserReactContext);
